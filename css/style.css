@@ -78,7 +78,8 @@ ul { list-style: none; }
 }
 
 .navbar-logo .logo-icon {
-  width: 38px;
+  width: fit-content;
+  padding: 0 8px;
   height: 38px;
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
   border-radius: 8px;
@@ -140,6 +141,14 @@ ul { list-style: none; }
 .navbar-links a:hover::after,
 .navbar-links a.active::after {
   width: 60%;
+}
+
+.logo-icon1 {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: none; /* bye bye ugly blue box */
 }
 
 .navbar-cta {
@@ -1128,7 +1137,8 @@ footer {
 }
 
 .footer-brand .logo-icon {
-  width: 34px;
+  width: fit-content;
+  padding: 0 8px;
   height: 34px;
   background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
   border-radius: 7px;
