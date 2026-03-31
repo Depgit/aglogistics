@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | AG Logistics & Transport</title>
+  <meta name="description" content="Learn about AG Logistics & Transport — our story, mission, and values that drive our commitment to delivering world-class freight solutions." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 5% 80px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,180,216,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { max-width: 700px; }
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      margin-top: 40px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--color-accent), transparent);
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: 40px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -47px; top: 6px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      box-shadow: 0 0 12px rgba(0,180,216,0.5);
+    }
+    .timeline-year {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 50px;
+    }
+    .value-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .value-card:hover {
+      border-color: rgba(0,180,216,0.4);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+    .value-emoji { font-size: 2.2rem; margin-bottom: 16px; display: block; }
+    .value-title {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .value-desc {
+      font-size: 0.87rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+    .team-section {
+      background: var(--color-primary);
+      padding: 90px 5%;
+    }
+    .mission-band {
+      background: linear-gradient(135deg, #0077b6, #023e8a);
+      padding: 60px 5%;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-band::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url('../images/hero_bg.png') center/cover;
+      opacity: 0.06;
+    }
+    .mission-band h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 900;
+      position: relative;
+      margin-bottom: 16px;
+    }
+    .mission-band p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 650px;
+      margin: 0 auto 30px;
+      line-height: 1.75;
+      position: relative;
+    }
+    .about-stats {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      flex-wrap: wrap;
+      position: relative;
+      margin-top: 16px;
+    }
+    .astat { text-align: center; }
+    .astat-num {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--color-gold);
+      display: block;
+    }
+    .astat-lbl {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    @media (max-width: 768px) {
+      .values-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 1024px) {
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">🚢</div>
+      <div class="logo-text">AG Logistics <span>& Transport</span></div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="navbar-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html" class="navbar-cta">Contact Us</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">About Us</div>
+      <h1>Driven by <span style="color:var(--color-accent)">Reliability</span><br>Powered by Expertise</h1>
+      <p>AG Logistics & Transport was founded with a single mission — to make international freight simple, transparent, and accessible for importers and traders across India.</p>
+    </div>
+  </div>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-wrap">
+          <img src="images/shipping_line.png" alt="AG Logistics Operations" />
+        </div>
+        <div class="about-badge-float">
+          <span class="badge-number">5+</span>
+          <span class="badge-label">Years of Service</span>
+        </div>
+      </div>
+
+      <div class="about-content reveal reveal-delay-1">
+        <div class="section-tag">Our Story</div>
+        <h2 class="about-title">A Company Built on<br><span class="accent">Experience & Integrity</span></h2>
+        <p class="about-text">
+          AG Logistics & Transport was established to bridge the gap between global shipping networks and Indian importers. We noticed that businesses were often overwhelmed by the complexity and hidden costs of international freight — and we set out to change that.
+        </p>
+        <p class="about-text">
+          From handling Ocean Freight originating in China to coordinating seamless Delivery Orders at Inland Container Depots across India, our team brings deep expertise in every aspect of the import supply chain.
+        </p>
+        <p class="about-text">
+          We specialize in the Mundra–ICD Garhi trade corridor and work with established shipping lines to offer competitive rates, transparent GST-inclusive pricing, and dedicated after-care.
+        </p>
+
+        <div class="about-pillars">
+          <div class="pillar-card">
+            <div class="pillar-icon">🏆</div>
+            <div class="pillar-title">Excellence</div>
+            <div class="pillar-desc">We deliver top-tier service quality on every single shipment.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🔍</div>
+            <div class="pillar-title">Transparency</div>
+            <div class="pillar-desc">No hidden fees. Clear breakdowns from ocean freight to D/O.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">⚡</div>
+            <div class="pillar-title">Speed</div>
+            <div class="pillar-desc">Fast documentation turnaround and quick free-day utilization.</div>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-icon">🤝</div>
+            <div class="pillar-title">Partnership</div>
+            <div class="pillar-desc">We treat every client relationship as a long-term partnership.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION BAND -->
+  <div class="mission-band">
+    <h2>Our Mission</h2>
+    <p>To simplify global logistics for Indian businesses by providing end-to-end freight solutions that are transparent, efficient, and competitively priced — from origin port to final destination.</p>
+    <div class="about-stats">
+      <div class="astat">
+        <span class="astat-num">500+</span>
+        <span class="astat-lbl">Shipments Handled</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">98%</span>
+        <span class="astat-lbl">On-Time Rate</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">15+</span>
+        <span class="astat-lbl">Trade Routes</span>
+      </div>
+      <div class="astat">
+        <span class="astat-num">100%</span>
+        <span class="astat-lbl">Compliance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VALUES -->
+  <section style="background: var(--color-secondary); padding: 90px 5%;">
+    <div class="section-header">
+      <div class="section-tag">Our Values</div>
+      <h2 class="section-title">What We <span class="accent">Stand For</span></h2>
+      <p class="section-desc">Every decision we make is grounded in these core principles that define who we are.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card reveal">
+        <span class="value-emoji">🌐</span>
+        <h3 class="value-title">Global Thinking</h3>
+        <p class="value-desc">We stay current with international shipping trends, port regulations, and trade route developments to give our clients strategic advantages.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-emoji">📊</span>
+        <h3 class="value-title">Data-Driven Pricing</h3>
+        <p class="value-desc">Our rates are benchmarked against live market data, ensuring you always receive competitive and fair pricing with full breakdowns.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-emoji">🛡️</span>
+        <h3 class="value-title">Risk Management</h3>
+        <p class="value-desc">Proactive issue identification, free-day tracking, and documentation audits to ensure your cargo never faces unnecessary holds or penalties.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-1">
+        <span class="value-emoji">🔄</span>
+        <h3 class="value-title">End-to-End Continuity</h3>
+        <p class="value-desc">From booking at origin to D/O at ICD, the same team manages your shipment — no handoffs, no gaps, no surprises.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-2">
+        <span class="value-emoji">📞</span>
+        <h3 class="value-title">Responsive Communication</h3>
+        <p class="value-desc">Real-time updates and quick responses mean you're never left wondering about the status of your cargo.</p>
+      </div>
+      <div class="value-card reveal reveal-delay-3">
+        <span class="value-emoji">🌱</span>
+        <h3 class="value-title">Long-Term Growth</h3>
+        <p class="value-desc">We grow with our clients. As your import volumes scale, our services and support scale with you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY TIMELINE -->
+  <section style="background: var(--color-primary); padding: 90px 5%;">
+    <div style="max-width:700px; margin:0 auto;">
+      <div class="section-header" style="text-align:left;">
+        <div class="section-tag">Our Journey</div>
+        <h2 class="section-title">How We <span class="accent">Got Here</span></h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-year">Year 1 — Foundation</div>
+          <h3 class="timeline-title">AG Logistics is Founded</h3>
+          <p class="timeline-desc">Started as a small freight forwarding agency, focusing on the India–China trade corridor with a commitment to transparent pricing.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Year 2 — Expansion</div>
+          <h3 class="timeline-title">Shipping Line Partnerships</h3>
+          <p class="timeline-desc">Established formal agreements with leading shipping lines, enabling better freight rates and priority container allocations for our clients.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Year 3 — Specialization</div>
+          <h3 class="timeline-title">ICD Garhi Network &amp; D/O Services</h3>
+          <p class="timeline-desc">Developed deep expertise in Mundra–ICD Garhi routing, streamlining the D/O process and reducing container detention costs for importers.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">Today — Leadership</div>
+          <h3 class="timeline-title">Trusted by 500+ Importers</h3>
+          <p class="timeline-desc">Now a trusted partner to hundreds of importers, offering competitive all-inclusive pricing with GST compliance and dedicated account management.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section style="background: var(--color-secondary); padding: 80px 5%; text-align:center;">
+    <div class="section-tag" style="margin-bottom:20px;">Ready to Ship?</div>
+    <h2 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px;">Let's Move Your Cargo Together</h2>
+    <p style="color:var(--color-text-muted);max-width:500px;margin:0 auto 36px;font-size:1rem;line-height:1.7;">Get in touch with our team today for a customized freight quote tailored to your specific requirements.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary"><span>💬</span> Contact Us</a>
+      <a href="services.html" class="btn-outline"><span>🌊</span> View Services</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#00b4d8,#0077b6);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;">🚢</div>
+          <span style="font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:800;">AG Logistics & Transport</span>
+        </div>
+        <p class="footer-desc">Your trusted partner for ocean freight, shipping line services, and forwarder delivery order management across global trade routes.</p>
+        <div class="footer-socials">
+          <div class="social-btn">💼</div>
+          <div class="social-btn">📱</div>
+          <div class="social-btn">✉️</div>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Ocean Freight</a></li>
+          <li><a href="services.html">Shipping Line Support</a></li>
+          <li><a href="services.html">Forwarder D/O</a></li>
+          <li><a href="pricing.html">Pricing Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <ul class="footer-links" style="cursor:default;">
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📞 &nbsp;+91 XXXXX XXXXX</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">✉️ &nbsp;info@aglogistics.in</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📍 &nbsp;India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AG Logistics & Transport. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

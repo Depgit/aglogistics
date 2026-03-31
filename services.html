@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | AG Logistics & Transport</title>
+  <meta name="description" content="AG Logistics & Transport offers Ocean Freight, Shipping Line Support, and Forwarder D/O services — complete freight management from port to destination." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .page-hero {
+      padding: 160px 5% 80px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(0,180,216,0.08), transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner { max-width: 700px; }
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+    }
+
+    /* ── Service Detail Cards ── */
+    .service-detail {
+      padding: 90px 5%;
+    }
+    .service-detail:nth-child(even) {
+      background: var(--color-secondary);
+    }
+    .service-detail:nth-child(odd) {
+      background: var(--color-primary);
+    }
+
+    .sd-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .sd-inner.reverse { direction: rtl; }
+    .sd-inner.reverse > * { direction: ltr; }
+
+    .sd-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+    }
+    .sd-img img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+    .sd-img:hover img { transform: scale(1.04); }
+
+    .sd-content {}
+    .sd-number {
+      font-family: var(--font-heading);
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(0,180,216,0.12);
+      line-height: 1;
+      margin-bottom: -10px;
+    }
+    .sd-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .sd-title .accent { color: var(--color-accent); }
+    .sd-desc {
+      font-size: 0.97rem;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .sd-features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .sd-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      background: var(--color-glass);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+    .sd-feature:hover {
+      border-color: rgba(0,180,216,0.35);
+      background: rgba(0,180,216,0.05);
+    }
+    .sd-feature-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .sd-feature-text {}
+    .sd-feature-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .sd-feature-desc {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      line-height: 1.45;
+    }
+
+    /* Process strip */
+    .process-section {
+      background: var(--color-primary);
+      padding: 90px 5%;
+    }
+    .process-steps {
+      display: flex;
+      gap: 0;
+      position: relative;
+      margin-top: 60px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+    .process-step {
+      flex: 1;
+      min-width: 160px;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+    .process-step::after {
+      content: '→';
+      position: absolute;
+      right: -10px;
+      top: 28px;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      opacity: 0.5;
+    }
+    .process-step:last-child::after { display: none; }
+    .step-circle {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 16px;
+      background: linear-gradient(135deg, rgba(0,180,216,0.25), rgba(0,119,182,0.15));
+      border: 2px solid var(--color-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 0 20px rgba(0,180,216,0.2);
+    }
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .step-desc {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      .sd-inner { grid-template-columns: 1fr; gap: 40px; }
+      .sd-inner.reverse { direction: ltr; }
+      .sd-features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">🚢</div>
+      <div class="logo-text">AG Logistics <span>& Transport</span></div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="navbar-cta">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html" class="navbar-cta">Contact Us</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Our Services</div>
+      <h1>Complete <span style="color:var(--color-accent)">Freight Solutions</span><br>Under One Roof</h1>
+      <p>We cover every leg of your cargo's journey — from origin port booking to final inland delivery — with speed, accuracy, and full transparency.</p>
+    </div>
+  </div>
+
+  <!-- SERVICE 1: OCEAN FREIGHT -->
+  <section class="service-detail" id="ocean-freight">
+    <div class="sd-inner">
+      <div class="sd-img reveal">
+        <img src="images/ocean_freight.png" alt="Ocean Freight" loading="lazy" />
+      </div>
+      <div class="sd-content reveal reveal-delay-1">
+        <div class="sd-number">01</div>
+        <div class="section-tag" style="margin-bottom:12px;">Ocean Freight</div>
+        <h2 class="sd-title">Global <span class="accent">Sea Freight</span><br>at Competitive Rates</h2>
+        <p class="sd-desc">
+          We offer Full Container Load (FCL) sea freight from major global origins — primarily China via Qingdao — to key Indian ports including Mundra. Our freight rates are quoted in USD and converted at competitive exchange rates, with full GST-compliant invoicing.
+        </p>
+        <div class="sd-features-grid">
+          <div class="sd-feature">
+            <span class="sd-feature-icon">📦</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">FCL Container Types</div>
+              <div class="sd-feature-desc">20GP, 40GP, 40HC & special containers available</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">💱</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">USD Rate Transparency</div>
+              <div class="sd-feature-desc">Clear USD rates with declared exchange rate conversion</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">🛳️</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Reliable Shipping Lines</div>
+              <div class="sd-feature-desc">ESL, MSC, COSCO & other major carriers</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">📅</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Fixed ETD Sailing</div>
+              <div class="sd-feature-desc">Confirmed schedules with ETD/ETA tracking</div>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary"><span>📝</span> Request Ocean Freight Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 2: SHIPPING LINE SUPPORT -->
+  <section class="service-detail" id="shipping-line">
+    <div class="sd-inner reverse">
+      <div class="sd-img reveal">
+        <img src="images/shipping_line.png" alt="Shipping Line Support" loading="lazy" />
+      </div>
+      <div class="sd-content reveal reveal-delay-1">
+        <div class="sd-number">02</div>
+        <div class="section-tag" style="margin-bottom:12px;">Shipping Line Support</div>
+        <h2 class="sd-title">Port-Level <span class="accent">Coordination</span><br>& Documentation</h2>
+        <p class="sd-desc">
+          Our shipping line support service handles everything from container booking and Bill of Lading management to port-side coordination at Mundra. We ensure all documentation is compliant with both shipping line and customs requirements, and we manage free day allocations proactively.
+        </p>
+        <div class="sd-features-grid">
+          <div class="sd-feature">
+            <span class="sd-feature-icon">📄</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Bill of Lading Management</div>
+              <div class="sd-feature-desc">Original BL, Telex release & Express BL options</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">🏖️</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">14 Free Days at Destination</div>
+              <div class="sd-feature-desc">Maximize free day utilization to avoid detention costs</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">🔒</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Compliance & Customs</div>
+              <div class="sd-feature-desc">Port health, customs, and carrier compliance support</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">📊</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">GST-Inclusive Charges</div>
+              <div class="sd-feature-desc">All shipping line charges invoiced with 18% GST</div>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary"><span>⚓</span> Enquire About This Service</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE 3: FORWARDER D/O -->
+  <section class="service-detail" id="forwarder-do">
+    <div class="sd-inner">
+      <div class="sd-img reveal">
+        <img src="images/forwarder_do.png" alt="Forwarder D/O" loading="lazy" />
+      </div>
+      <div class="sd-content reveal reveal-delay-1">
+        <div class="sd-number">03</div>
+        <div class="section-tag" style="margin-bottom:12px;">Forwarder D/O</div>
+        <h2 class="sd-title">Fast &amp; Hassle-Free <span class="accent">Delivery Orders</span></h2>
+        <p class="sd-desc">
+          Our Forwarder Delivery Order service is designed to minimize the last-mile complexity for importers. We coordinate directly with ICDs like Garhi to ensure your containers are released promptly, with all documentation in order. Our D/O charges are among the most competitive in the market.
+        </p>
+        <div class="sd-features-grid">
+          <div class="sd-feature">
+            <span class="sd-feature-icon">🏭</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">ICD Garhi Coordination</div>
+              <div class="sd-feature-desc">Direct liaison with ICD Garhi for container release</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">⚡</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Rapid D/O Issuance</div>
+              <div class="sd-feature-desc">Same-day D/O processing in most cases</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">🧾</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Flat INR 2,000 Base Rate</div>
+              <div class="sd-feature-desc">Competitive fixed rate + GST per container</div>
+            </div>
+          </div>
+          <div class="sd-feature">
+            <span class="sd-feature-icon">📱</span>
+            <div class="sd-feature-text">
+              <div class="sd-feature-title">Real-Time Status Updates</div>
+              <div class="sd-feature-desc">Live updates on D/O status and container movement</div>
+            </div>
+          </div>
+        </div>
+        <a href="contact.html" class="btn-primary"><span>📋</span> Get D/O Assistance</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS FLOW -->
+  <section class="process-section">
+    <div class="section-header">
+      <div class="section-tag">How It Works</div>
+      <h2 class="section-title">From Booking to <span class="accent">Delivery</span></h2>
+      <p class="section-desc">Our streamlined process ensures your cargo moves efficiently from origin port to final destination.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="step-circle">📝</div>
+        <h4 class="step-title">Enquiry & Quote</h4>
+        <p class="step-desc">Share shipment details; receive a transparent, itemized quote within 24 hours</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-circle">✅</div>
+        <h4 class="step-title">Booking Confirmed</h4>
+        <p class="step-desc">Container booking placed with shipping line; ETD confirmed</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-circle">🚢</div>
+        <h4 class="step-title">Cargo Sailed</h4>
+        <p class="step-desc">Vessel departs from origin; BL issued and shared</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-circle">⚓</div>
+        <h4 class="step-title">Port Arrival</h4>
+        <p class="step-desc">Arrival at Mundra; customs & shipping line charges handled</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="step-circle">📋</div>
+        <h4 class="step-title">D/O Issued</h4>
+        <p class="step-desc">Delivery Order processed for release at ICD Garhi</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="step-circle" style="border-color:var(--color-gold);">🏆</div>
+        <h4 class="step-title">Cargo Delivered</h4>
+        <p class="step-desc">Container released; cargo reaches its final destination</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--color-secondary); padding: 80px 5%; text-align:center;">
+    <div class="section-tag" style="margin-bottom:20px;">Get Started</div>
+    <h2 style="font-family:var(--font-heading);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin-bottom:16px;">Ready to Ship Your Cargo?</h2>
+    <p style="color:var(--color-text-muted);max-width:500px;margin:0 auto 36px;font-size:1rem;line-height:1.7;">Tell us about your shipment and we'll provide a competitive, transparent quote within 24 hours.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="contact.html" class="btn-primary"><span>💬</span> Request a Quote</a>
+      <a href="pricing.html" class="btn-outline"><span>💰</span> View Sample Pricing</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div style="width:34px;height:34px;background:linear-gradient(135deg,#00b4d8,#0077b6);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;">🚢</div>
+          <span style="font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:800;">AG Logistics & Transport</span>
+        </div>
+        <p class="footer-desc">Your trusted partner for ocean freight, shipping line services, and forwarder delivery order management across global trade routes.</p>
+        <div class="footer-socials">
+          <div class="social-btn">💼</div>
+          <div class="social-btn">📱</div>
+          <div class="social-btn">✉️</div>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html#ocean-freight">Ocean Freight</a></li>
+          <li><a href="services.html#shipping-line">Shipping Line Support</a></li>
+          <li><a href="services.html#forwarder-do">Forwarder D/O</a></li>
+          <li><a href="pricing.html">Pricing Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <ul class="footer-links" style="cursor:default;">
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📞 &nbsp;+91 XXXXX XXXXX</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">✉️ &nbsp;info@aglogistics.in</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📍 &nbsp;India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AG Logistics & Transport. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

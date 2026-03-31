@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | AG Logistics &amp; Transport</title>
+  <meta name="description"
+    content="Get in touch with AG Logistics &amp; Transport. Call us, email us, or fill out our enquiry form to get a customized freight quote within 24 hours." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── Page Hero ── */
+    .page-hero {
+      padding: 160px 5% 90px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -100px;
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(0, 180, 216, 0.09), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(244, 168, 32, 0.05), transparent 70%);
+      pointer-events: none;
+    }
+
+    .page-hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .hero-contact-pills {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+      justify-content: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 180, 216, 0.1);
+      border: 1px solid rgba(0, 180, 216, 0.3);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      transition: var(--transition);
+    }
+
+    .hero-pill:hover {
+      background: rgba(0, 180, 216, 0.18);
+      border-color: var(--color-accent);
+    }
+
+    .hero-pill.gold {
+      background: rgba(244, 168, 32, 0.1);
+      border-color: rgba(244, 168, 32, 0.3);
+      color: var(--color-gold);
+    }
+
+    .hero-pill.gold:hover {
+      background: rgba(244, 168, 32, 0.18);
+      border-color: var(--color-gold);
+    }
+
+    /* ── Main Contact Section ── */
+    .contact-section {
+      padding: 90px 5%;
+      background: var(--color-secondary);
+    }
+
+    .contact-layout {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── Contact Info Cards ── */
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-info-header {
+      margin-bottom: 8px;
+    }
+
+    .contact-info-header h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .contact-info-header p {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      transition: var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(0, 180, 216, 0.4);
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .contact-card.phone-1:hover {
+      border-color: rgba(0, 180, 216, 0.5);
+    }
+
+    .contact-card.phone-2:hover {
+      border-color: rgba(124, 58, 237, 0.5);
+    }
+
+    .contact-card.email:hover {
+      border-color: rgba(244, 168, 32, 0.5);
+    }
+
+    .cc-icon-wrap {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .cc-icon-blue {
+      background: rgba(0, 180, 216, 0.15);
+      border: 1px solid rgba(0, 180, 216, 0.3);
+    }
+
+    .cc-icon-purple {
+      background: rgba(124, 58, 237, 0.15);
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    .cc-icon-gold {
+      background: rgba(244, 168, 32, 0.15);
+      border: 1px solid rgba(244, 168, 32, 0.3);
+    }
+
+    .cc-body {
+      flex: 1;
+    }
+
+    .cc-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .cc-value {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--color-text);
+    }
+
+    .cc-note {
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      margin-top: 3px;
+    }
+
+    .cc-arrow {
+      font-size: 1.1rem;
+      color: var(--color-text-muted);
+      transition: var(--transition);
+    }
+
+    .contact-card:hover .cc-arrow {
+      color: var(--color-accent);
+      transform: translateX(4px);
+    }
+
+    /* Response time badge */
+    .response-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(74, 222, 128, 0.07);
+      border: 1px solid rgba(74, 222, 128, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 20px;
+      margin-top: 4px;
+    }
+
+    .rb-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+      animation: pulseGreen 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseGreen {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.5);
+      }
+    }
+
+    .rb-text {
+      font-size: 0.84rem;
+      color: #4ade80;
+      font-weight: 600;
+    }
+
+    .rb-text span {
+      color: var(--color-text-muted);
+      font-weight: 400;
+    }
+
+    /* ── Enquiry Form ── */
+    .enquiry-form-wrap {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+
+    .form-head {
+      background: linear-gradient(135deg, #004e8f, #0077b6 60%, #0096c7);
+      padding: 30px 36px;
+    }
+
+    .form-head-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.55);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .form-head h3 {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .form-head p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .form-body {
+      padding: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .form-label .req {
+      color: var(--color-accent);
+      margin-left: 3px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 0.93rem;
+      color: var(--color-text);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(148, 163, 184, 0.5);
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--color-accent);
+      background: rgba(0, 180, 216, 0.06);
+      box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.12);
+    }
+
+    .form-select {
+      cursor: pointer;
+    }
+
+    .form-select option {
+      background: #0d2545;
+      color: var(--color-text);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+      line-height: 1.65;
+    }
+
+    .form-submit {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35);
+      margin-top: 6px;
+    }
+
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 35px rgba(0, 180, 216, 0.5);
+    }
+
+    .form-submit:active {
+      transform: translateY(0);
+    }
+
+    /* Success state */
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 36px;
+      gap: 16px;
+    }
+
+    .form-success.show {
+      display: flex;
+    }
+
+    .form-body.hide {
+      display: none;
+    }
+
+    .success-icon {
+      font-size: 3.5rem;
+      animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .success-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: #4ade80;
+    }
+
+    .success-msg {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      max-width: 340px;
+      line-height: 1.65;
+    }
+
+    /* ── Why Contact Us Strip ── */
+    .why-strip {
+      background: var(--color-primary);
+      padding: 70px 5%;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 50px auto 0;
+    }
+
+    .why-card {
+      background: var(--color-glass);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .why-card:hover {
+      border-color: rgba(0, 180, 216, 0.35);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .why-title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .why-desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 90px 5%;
+      background: var(--color-secondary);
+    }
+
+    .faq-list {
+      max-width: 780px;
+      margin: 50px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--color-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      border-color: rgba(0, 180, 216, 0.3);
+    }
+
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: 0.97rem;
+      font-weight: 600;
+      padding: 22px 24px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: var(--transition);
+    }
+
+    .faq-q:hover {
+      color: var(--color-accent);
+    }
+
+    .faq-chevron {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      color: var(--color-accent);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      padding: 0 24px;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding: 0 24px 22px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+      .why-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-body {
+        padding: 24px;
+      }
+
+      .form-head {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">🚢</div>
+      <div class="logo-text">AG Logistics <span>&amp; Transport</span></div>
+    </a>
+    <ul class="navbar-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="contact.html" class="navbar-cta active">Contact Us</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="contact.html" class="active navbar-cta">Contact Us</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="section-tag">Contact Us</div>
+      <h1>Let's Move Your <span style="color:var(--color-accent)">Cargo</span><br>Together</h1>
+      <p>Have a shipment to plan or a question about freight rates? Reach out directly — we respond within 24 hours and
+        are happy to provide a tailored quote.</p>
+      <div class="hero-contact-pills">
+        <a href="tel:+919876543210" class="hero-pill">📞 +91 98765 43210</a>
+        <a href="tel:+919812345678" class="hero-pill">📞 +91 98123 45678</a>
+        <a href="mailto:info@aglogistics.in" class="hero-pill gold">✉️ info@aglogistics.in</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTACT SECTION -->
+  <section class="contact-section">
+    <div class="contact-layout">
+
+      <!-- Left: Contact Info -->
+      <div class="contact-info reveal">
+        <div class="contact-info-header">
+          <h2>Get In <span style="color:var(--color-accent)">Touch</span></h2>
+          <p>Call us directly, drop us an email, or fill out the enquiry form — we'll get back to you with a
+            competitive, transparent quote for your shipment.</p>
+        </div>
+
+        <!-- Phone 1 -->
+        <a href="tel:+919876543210" class="contact-card phone-1">
+          <div class="cc-icon-wrap cc-icon-blue">📞</div>
+          <div class="cc-body">
+            <div class="cc-label">Phone </div>
+            <div class="cc-value">+91 87506 48482</div>
+            <div class="cc-note">Mon – Sat, 9:00 AM – 7:00 PM IST</div>
+          </div>
+          <div class="cc-arrow">→</div>
+        </a>
+
+        <!-- Phone 2 -->
+        <a href="tel:+919812345678" class="contact-card phone-2">
+          <div class="cc-icon-wrap cc-icon-purple">📱</div>
+          <div class="cc-body">
+            <div class="cc-label">Phone 2 / WhatsApp</div>
+            <div class="cc-value">+91 70119 09804</div>
+            <div class="cc-note">Available on WhatsApp for quick queries</div>
+          </div>
+          <div class="cc-arrow">→</div>
+        </a>
+
+        <!-- Email -->
+        <a href="mailto:info@aglogistics.in" class="contact-card email">
+          <div class="cc-icon-wrap cc-icon-gold">✉️</div>
+          <div class="cc-body">
+            <div class="cc-label">Email</div>
+            <div class="cc-value">depcoder@gmail.com</div>
+            <div class="cc-note">Detailed quotes &amp; documentation queries</div>
+          </div>
+          <div class="cc-arrow">→</div>
+        </a>
+
+        <!-- Response Time -->
+        <div class="response-badge">
+          <div class="rb-dot"></div>
+          <div class="rb-text">
+            We're active right now &nbsp;·&nbsp;
+            <span>Average response within 2–4 hours</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Enquiry Form -->
+
+    </div>
+  </section>
+
+  <!-- WHY CONTACT US -->
+  <section class="why-strip">
+    <div class="section-header">
+      <div class="section-tag">Why Us?</div>
+      <h2 class="section-title">What Happens <span class="accent">After You Contact Us</span></h2>
+      <p class="section-desc">A clear, no-obligation process from your first message to your freight moving.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <span class="why-icon">📝</span>
+        <div class="why-title">Share Your Details</div>
+        <div class="why-desc">Tell us your origin, destination, and cargo type — the more detail, the better the quote.
+        </div>
+      </div>
+      <div class="why-card reveal reveal-delay-1">
+        <span class="why-icon">⚡</span>
+        <div class="why-title">Get a Quote in 24h</div>
+        <div class="why-desc">We assess your requirements and send a full cost breakdown including GST within 24 hours.
+        </div>
+      </div>
+      <div class="why-card reveal reveal-delay-2">
+        <span class="why-icon">✅</span>
+        <div class="why-title">Review &amp; Confirm</div>
+        <div class="why-desc">No pressure. Review the quote, ask questions, and confirm when you're ready to proceed.
+        </div>
+      </div>
+      <div class="why-card reveal reveal-delay-3">
+        <span class="why-icon">🚢</span>
+        <div class="why-title">We Handle Everything</div>
+        <div class="why-desc">From vessel booking to D/O at ICD — our team manages every step so you don't have to.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="section-header">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Common <span class="accent">Questions</span></h2>
+      <p class="section-desc">Quick answers to the questions we hear most often.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          How quickly will I receive a quote after contacting you?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">We aim to respond to all enquiries within 2–4 hours during business hours (Mon–Sat, 9 AM–7 PM
+          IST). For detailed freight quotes, a full breakdown is typically delivered within 24 hours of receiving your
+          shipment details.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-1">
+        <button class="faq-q" aria-expanded="false">
+          Can I reach you on WhatsApp?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">Yes! Our alternate number (+91 98123 45678) is active on WhatsApp. You can send us a message
+          with your shipment details and we'll respond promptly. It's a great way to get quick answers for simple
+          queries.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" aria-expanded="false">
+          What information should I have ready when I contact you?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">The more detail you can share, the faster we can quote. Ideally: origin port and country,
+          destination ICD or port, container type (20GP / 40GP / 40HC / LCL), commodity / cargo type, and your target
+          shipping date. We can still help you even if you don't have all the details yet.</div>
+      </div>
+      <div class="faq-item reveal reveal-delay-2">
+        <button class="faq-q" aria-expanded="false">
+          Do you handle routes other than China to India?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">While we specialize in the China–India corridor (particularly Qingdao/Shanghai to Mundra–ICD
+          Garhi), we also work with other origin ports and destinations. Contact us with your specific route and we'll
+          let you know how we can help.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <div
+            style="width:34px;height:34px;background:linear-gradient(135deg,#00b4d8,#0077b6);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:16px;">
+            🚢</div>
+          <span style="font-family:'Outfit',sans-serif;font-size:1.15rem;font-weight:800;">AG Logistics &amp;
+            Transport</span>
+        </div>
+        <p class="footer-desc">Your trusted partner for ocean freight, shipping line services, and forwarder delivery
+          order management across global trade routes.</p>
+        <div class="footer-socials">
+          <div class="social-btn">💼</div>
+          <div class="social-btn">📱</div>
+          <div class="social-btn">✉️</div>
+        </div>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Services</h4>
+        <ul class="footer-links">
+          <li><a href="services.html">Ocean Freight</a></li>
+          <li><a href="services.html">Shipping Line Support</a></li>
+          <li><a href="services.html">Forwarder D/O</a></li>
+          <li><a href="pricing.html">Pricing Guide</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="footer-col-title">Contact</h4>
+        <ul class="footer-links" style="cursor:default;">
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📞 &nbsp;+91 98765 43210</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">📱 &nbsp;+91 98123 45678</li>
+          <li style="color:#94a3b8;gap:8px;display:flex;font-size:0.88rem;padding:5px 0;">✉️ &nbsp;info@aglogistics.in
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AG Logistics &amp; Transport. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // ── Accordion FAQ ──
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.querySelector('.faq-q').addEventListener('click', () => {
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    // ── Form Submit (demo — no backend) ──
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      // Simulate a brief send delay
+      setTimeout(() => {
+        document.getElementById('formBody').classList.add('hide');
+        document.getElementById('formSuccess').classList.add('show');
+      }, 900);
+    });
+  </script>
+</body>
+
+</html>
